@@ -26,8 +26,10 @@ function getPokemons(pokemons) {
 }
 
 function createdPokemon(pokemon) {
+    let img = pokemon.sprites.other.dream_world.front_default;
+
     let pokemonInfo = {
-        image_url: pokemon.sprites.other.dream_world.front_default,
+        image_url: img == null ? pokemon.sprites.other.home.front_default : img,
         name: pokemon.name,
         type: pokemon.types[0].type.name
     }
@@ -60,7 +62,7 @@ function getpokemonDetail(imageUrl, name, skills) {
 function update(btn) {
     gallery.innerHTML = "";
 
-    window.scroll({top: 0, left: 0, behavior: 'smooth'});
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
 
     eval("fetchApi(" + btn + ".title, requestOptions, 'getPokemons(data)');");
 }
@@ -68,7 +70,7 @@ function update(btn) {
 function getStats(stats) {
     let skills = "";
 
-    for(stat of stats) {
+    for (stat of stats) {
         skills += `<p><b>${stat.stat.name}:</b> ${stat.base_stat}</p>`;
     }
 
