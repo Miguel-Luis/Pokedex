@@ -26,10 +26,8 @@ function getPokemons(pokemons) {
 }
 
 function createdPokemon(pokemon) {
-    let img = pokemon.sprites.other.dream_world.front_default;
-
     let pokemonInfo = {
-        image_url: img == null ? pokemon.sprites.other.home.front_default : img,
+        image_url: pokemon.sprites.other["official-artwork"].front_default,
         name: pokemon.name,
         type: pokemon.types[0].type.name
     }
