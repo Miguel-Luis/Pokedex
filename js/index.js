@@ -60,7 +60,7 @@ function getpokemonDetail(imageUrl, name, skills) {
 }
 
 function update(btn) {
-    if(eval(btn + ".title" != null)) {
+    if(eval(btn + ".title !== 'null'")) {
         gallery.innerHTML = "";
     
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
