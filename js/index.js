@@ -60,11 +60,13 @@ function getpokemonDetail(imageUrl, name, skills) {
 }
 
 function update(btn) {
-    gallery.innerHTML = "";
-
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-
-    eval("fetchApi(" + btn + ".title, requestOptions, 'getPokemons(data)');");
+    if(eval(btn + ".title" != null)) {
+        gallery.innerHTML = "";
+    
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+    
+        eval("fetchApi(" + btn + ".title, requestOptions, 'getPokemons(data)');");
+    }
 }
 
 function getStats(stats) {
